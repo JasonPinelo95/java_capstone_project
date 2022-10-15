@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Courses</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Courses</h1>
+<table>
+    <tr>
+        <th>Professor</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Credits</th>
+        <th>Semester</th>
+    </tr>
+    <tr th:each="course : ${courses}">
+        <td th:text="${course.professorId.getFirstName()} + ' ' + ${course.professorId.getLastName()}"></td>
+        <td th:text="${course.getName()}"></td>
+        <td th:text="${course.getDescription()}"></td>
+        <td th:text="${course.getCredits()}"></td>
+        <td th:text="${course.getSemester()}"></td>
+
+    </tr>
+</table>
+</body>
+</html>

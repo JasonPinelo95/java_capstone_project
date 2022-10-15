@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Enrollments</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Enrollments</h1>
+    <table>
+        <tr>
+            <th>Student</th>
+            <th>Course</th>
+            <th>Grade</th>
+        </tr>
+<tr th:each="enrollment : ${enrollments}">
+            <td th:text="${enrollment.studentId.getFirstName()} + ' ' + ${enrollment.studentId.getLastName()}"></td>
+            <td th:text="${enrollment.courseId.getName()}"></td>
+            <td th:text="${enrollment.getGrade()}"></td>
+
+    </table>
+</body>
+</html>
