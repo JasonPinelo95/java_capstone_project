@@ -1,14 +1,12 @@
 package com.example.university.model;
 
-import lombok.Data;
-
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 //@Data
 @Table(name = "students")
-public class Students {
+public class Student {
     @Id
     @Column(name = "student_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

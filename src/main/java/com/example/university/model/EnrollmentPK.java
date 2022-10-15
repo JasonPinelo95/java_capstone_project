@@ -5,7 +5,7 @@ import javax.persistence.Embeddable;
 import java.io.Serializable;
 
 @Embeddable
-public class EnrollmentsPK implements Serializable {
+public class EnrollmentPK implements Serializable {
     @Column(name = "student_id")
     private long studentId;
 

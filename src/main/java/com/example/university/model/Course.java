@@ -1,14 +1,12 @@
 package com.example.university.model;
 
-import lombok.Data;
-
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 //@Data
 @Table(name = "courses")
-public class Courses {
+public class Course {
     @Id
     @Column(name = "course_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +26,7 @@ public class Courses {
 
     @ManyToOne
     @JoinColumn(name = "professor_id", insertable = false, updatable = false)
-    private Professors professorId;
+    private Professor professorId;
 
     @OneToMany(mappedBy = "courseId")
     private List<Enrollment> enrollments;
@@ -73,11 +71,11 @@ public class Courses {
         this.semester = semester;
     }
 
-    public Professors getProfessorId() {
+    public Professor getProfessorId() {
         return professorId;
     }
 
-    public void setProfessorId(Professors professorId) {
+    public void setProfessorId(Professor professorId) {
         this.professorId = professorId;
     }
 

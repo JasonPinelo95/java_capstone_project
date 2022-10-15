@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "professors")
-public class Professors {
+public class Professor {
     @Id
     @Column(name = "professor_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,5 +31,5 @@ public class Professors {
     private Date hireDate;
 
     @OneToMany(mappedBy = "professorId")
-    private List<Courses> courses;
+    private List<Course> cours;
 }

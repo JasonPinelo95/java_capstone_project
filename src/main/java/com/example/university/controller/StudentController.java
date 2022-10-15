@@ -1,6 +1,6 @@
 package com.example.university.controller;
 
-import com.example.university.services.StudentsService;
+import com.example.university.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class StudentController {
-    private final StudentsService studentsService;
+    private final StudentService studentService;
 
     @Autowired
-    public StudentController(StudentsService studentsService) {
-        this.studentsService = studentsService;
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
     }
 
     @GetMapping("/students")
     public String getStudents(Model model){
-        model.addAttribute("students", studentsService.findAll());
+        model.addAttribute("students", studentService.findAll());
         return "students";
     }
 }
