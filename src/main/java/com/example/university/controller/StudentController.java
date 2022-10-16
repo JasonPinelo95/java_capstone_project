@@ -20,5 +20,9 @@ public class StudentController {
         model.addAttribute("students", studentService.findAll());
         return "students";
     }
+    @GetMapping("students/dashboard")
+    public String getStudentDashboard(){
+        return "students-dashboard";
+    }
 }
 
