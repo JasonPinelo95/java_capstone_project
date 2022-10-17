@@ -8,6 +8,6 @@ public interface ProfessorService {
     List<Professor> findAll();
     Professor findById(Long id);
     Professor save(Professor professor);
-
     void deleteById(Long id);
+    Professor findByEmail(String email);
 }

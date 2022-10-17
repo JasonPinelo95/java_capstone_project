@@ -15,9 +15,15 @@ public class ProfessorController {
         this.professorService = professorService;
     }
 
-    @GetMapping("/professors")
-    public String getProfessors(Model model){
-        model.addAttribute("professors", professorService.findAll());
-        return "professors";
+    //@GetMapping("/professors")
+    //public String getProfessors(Model model){
+    //    model.addAttribute("professors", professorService.findAll());
+    //    return "professors";
+    //}
+
+    @GetMapping("/professors/dashboard")
+    public String getProfessorDashboard(Model model){
+        return "professors-dashboard";
     }
+
 }

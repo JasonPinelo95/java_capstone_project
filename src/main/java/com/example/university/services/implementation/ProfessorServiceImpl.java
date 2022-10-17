@@ -37,5 +37,10 @@ public class ProfessorServiceImpl implements ProfessorService {
         professorRepository.deleteById(id);
     }
 
+    @Override
+    public Professor findByEmail(String email) {
+        return professorRepository.findByEmail(email);
+    }
+
 }
 
