@@ -6,7 +6,6 @@ import com.example.university.services.implementation.ProfessorDetailsServiceImp
 import com.example.university.services.implementation.StudentDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -37,9 +36,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .and()
                 .formLogin()
                 .loginPage("/login").permitAll()
+                .failureUrl("/login?error=true")
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .defaultSuccessUrl("/");
+    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/resources/**");
     }
 
     @Override
@@ -49,6 +54,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         auth.userDetailsService(studentDetailsService).passwordEncoder(NoOpPasswordEncoder.getInstance());
         auth.userDetailsService(professorDetailsService).passwordEncoder(NoOpPasswordEncoder.getInstance());
     }
-
 
 }
