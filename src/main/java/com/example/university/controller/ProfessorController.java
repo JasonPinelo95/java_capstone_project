@@ -25,4 +25,10 @@ public class ProfessorController {
         return "professors-dashboard";
     }
 
+    // redirect /professors to /professors/dashboard
+    @GetMapping(value = "/professors")
+    public String getProfessorDashboardRedirect(){
+        return "redirect:/professors/dashboard";
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.example.university.services.implementation;
 
 import com.example.university.model.Enrollment;
+import com.example.university.model.Student;
 import com.example.university.repository.EnrollmentRepository;
 import com.example.university.services.EnrollmentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,11 @@ public class EnrollmentServiceImpl implements EnrollmentService {
     @Override
     public Enrollment save(Enrollment enrollment) {
         return enrollmentRepository.save(enrollment);
+    }
+
+    @Override
+    public List<Enrollment> findByStudentId(Student studentId) {
+        return enrollmentRepository.findByStudentId(studentId);
     }
 
     //Fix this method

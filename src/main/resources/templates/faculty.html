@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faculty</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+            integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+            crossorigin="anonymous"></script>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1 class="mb-1 text-center">Meet our Faculty</h1>
+    <div class="container my-5">
+        <div class="container">
+            <div th:each="professor : ${professors}" class="row">
+                <div class="mb-3">
+                    <img src="https://static.wixstatic.com/media/e16f80_8d32ec3e89624079a9352b1befaeffee~mv2.jpg/v1/fill/w_239,h_239,al_c,lg_1,q_80,enc_auto/Image-empty-state.jpg" class="img-fluid" alt="Responsive image">
+                </div>
+                <p th:text="${professor.getFirstName()} + ' ' +  ${professor.getLastName()} " class="col-md-3 text-center"></p>
+                <p th:text="${professor.getEmail()}" class="col-md-3 text-center"></p>
+                <p th:text="${professor.getHireDate()}" class="col-md-3 text-center"></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
