@@ -12,6 +12,14 @@ public class EnrollmentPK implements Serializable {
     @Column(name = "course_id")
     private long courseId;
 
+    public EnrollmentPK(Long courseId, Long studentId) {
+        this.courseId = courseId;
+        this.studentId = studentId;
+    }
+    //default constructor
+    public EnrollmentPK() {
+    }
+
     public long getStudentId() {
         return studentId;
     }
@@ -28,4 +36,11 @@ public class EnrollmentPK implements Serializable {
         this.courseId = courseId;
     }
 
+    @Override
+    public String toString() {
+        return "EnrollmentPK{" +
+                "studentId=" + studentId +
+                ", courseId=" + courseId +
+                '}';
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.university.services.implementation;
 
 import com.example.university.model.Enrollment;
+import com.example.university.model.EnrollmentPK;
 import com.example.university.model.Student;
 import com.example.university.repository.EnrollmentRepository;
 import com.example.university.services.EnrollmentService;
@@ -24,6 +25,11 @@ public class EnrollmentServiceImpl implements EnrollmentService {
     }
 
     @Override
+    public Enrollment findById(long id) {
+        return enrollmentRepository.findById(id).orElse(null);
+    }
+
+    @Override
     public Enrollment save(Enrollment enrollment) {
         return enrollmentRepository.save(enrollment);
     }
@@ -32,12 +38,10 @@ public class EnrollmentServiceImpl implements EnrollmentService {
     public List<Enrollment> findByStudentId(Student studentId) {
         return enrollmentRepository.findByStudentId(studentId);
     }
-
-    //Fix this method
-    //@Override
-    //public void deleteById(Long id) {
-    //    enrollmentsRepository.deleteById(id);
-    //}
+    @Override
+    public void deleteById(long id) {
+        enrollmentRepository.deleteById(id);
+    }
 
 }
 

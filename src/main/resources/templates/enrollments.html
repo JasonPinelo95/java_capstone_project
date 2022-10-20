@@ -8,11 +8,13 @@
     <h1>Enrollments</h1>
     <table>
         <tr>
+            <th>Id</th>
             <th>Student</th>
             <th>Course</th>
             <th>Grade</th>
         </tr>
 <tr th:each="enrollment : ${enrollments}">
+        <td th:text="${enrollment.id}"></td>
             <td th:text="${enrollment.studentId.getFirstName()} + ' ' + ${enrollment.studentId.getLastName()}"></td>
             <td th:text="${enrollment.courseId.getName()}"></td>
             <td th:text="${enrollment.getGrade()}"></td>

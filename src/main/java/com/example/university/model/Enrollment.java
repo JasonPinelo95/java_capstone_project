@@ -6,27 +6,30 @@ import javax.persistence.*;
 //@Data
 @Table(name = "enrollments")
 public class Enrollment {
-    @EmbeddedId
-    private EnrollmentPK id;
+    @Id
+    @Column(name = "enrollment_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long enrollmentId;
+
 
     @Column(name = "grade")
     private String grade;
 
     @ManyToOne
-    @JoinColumn(name = "student_id", insertable = false, updatable = false)
+    @JoinColumn(name = "student_id")
     private Student studentId;
 
     @ManyToOne
-    @JoinColumn(name = "course_id", insertable = false, updatable = false)
+    @JoinColumn(name = "course_id")
     private Course courseId;
 
 
-    public EnrollmentPK getId() {
-        return id;
+    public long getId() {
+        return enrollmentId;
     }
 
-    public void setId(EnrollmentPK id) {
-        this.id = id;
+    public void setId(long id) {
+        this.enrollmentId = id;
     }
 
     public String getGrade() {
