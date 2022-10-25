@@ -1,8 +1,7 @@
-package com.example.university.services.implementation;
+package com.example.university.services;
 
 import com.example.university.model.Course;
 import com.example.university.repository.CourseRepository;
-import com.example.university.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

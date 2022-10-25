@@ -1,8 +1,7 @@
-package com.example.university.services.implementation;
+package com.example.university.services;
 
 import com.example.university.model.Professor;
 import com.example.university.repository.ProfessorRepository;
-import com.example.university.services.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

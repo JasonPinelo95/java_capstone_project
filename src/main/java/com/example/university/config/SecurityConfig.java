@@ -2,8 +2,8 @@ package com.example.university.config;
 
 import com.example.university.repository.ProfessorRepository;
 import com.example.university.repository.StudentRepository;
-import com.example.university.services.implementation.ProfessorDetailsServiceImpl;
-import com.example.university.services.implementation.StudentDetailsServiceImpl;
+import com.example.university.services.ProfessorDetailsServiceImpl;
+import com.example.university.services.StudentDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

@@ -1,11 +1,12 @@
 package com.example.university.controller;
 
 import com.example.university.model.Enrollment;
-import com.example.university.model.EnrollmentPK;
 import com.example.university.model.Student;
 import com.example.university.services.CourseService;
 import com.example.university.services.EnrollmentService;
 import com.example.university.services.StudentService;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,8 @@ import java.util.List;
 
 @Controller
 public class StudentController {
+
+    private static final Logger logger = LoggerFactory.getLogger(StudentController.class);
     private final StudentService studentService;
     private final EnrollmentService enrollmentService;
 
@@ -49,18 +52,21 @@ public class StudentController {
     @PostMapping("/students/addenrollment")
     public String addEnrollment(@Valid Enrollment enrollment, BindingResult result, Principal principal, Model model){
         if(result.hasErrors()){
+            logger.info("Error adding enrollment");
             return "addenrollment";
         }
         List<Enrollment> currentEnrollments = enrollmentService.findByStudentId(studentService.findByEmail(principal.getName()));
         for(Enrollment e : currentEnrollments){
             if(e.getCourseId().equals(enrollment.getCourseId())){
                 model.addAttribute("message", "You are already enrolled in this course");
-                return "addenrollment";
+                logger.debug("Error adding enrollment");
+                return "redirect:/students/dashboard";
             }
         }
         Student student = studentService.findByEmail(principal.getName());
         enrollment.setStudentId(student);
         enrollmentService.save(enrollment);
+        logger.info("Enrollment added");
         return "redirect:/students/dashboard";
     }
 
@@ -75,6 +81,7 @@ public class StudentController {
         Enrollment enrollment = enrollmentService.findById(id);
         if (enrollment != null){
             enrollmentService.deleteById(id);
+            logger.info("Deleted enrollment with id: " + id);
             return "redirect:/students/dashboard";
         }
         return "error/404";

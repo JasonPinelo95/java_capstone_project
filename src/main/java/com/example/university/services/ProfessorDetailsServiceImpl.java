@@ -1,4 +1,4 @@
-package com.example.university.services.implementation;
+package com.example.university.services;
 
 import com.example.university.model.Professor;
 import com.example.university.repository.ProfessorRepository;

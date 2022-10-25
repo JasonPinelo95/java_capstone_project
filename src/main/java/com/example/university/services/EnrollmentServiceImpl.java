@@ -1,10 +1,8 @@
-package com.example.university.services.implementation;
+package com.example.university.services;
 
 import com.example.university.model.Enrollment;
-import com.example.university.model.EnrollmentPK;
 import com.example.university.model.Student;
 import com.example.university.repository.EnrollmentRepository;
-import com.example.university.services.EnrollmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
